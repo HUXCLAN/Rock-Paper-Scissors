@@ -207,14 +207,17 @@ else:
             exec(condition)
             print(' ')
         for x in range(player_num):
-            list_index = data_list[player_num]
+            list_index = data_list[x]
             if list_index == 'win':
                 data_int = data_int + 1
             elif list_index == 'loss':
                 data_int = data_int - 1
-        print(data_int)
-        os.system('pause')
-        main()            
+        if data_int > 0:
+            single_win()
+        if data_int == 0:
+            single_tie()
+        if data_int < 0:
+            single_lose()           
 def check():
     global data_dict
     file_check = os.path.isfile('rpsdata.txt')
